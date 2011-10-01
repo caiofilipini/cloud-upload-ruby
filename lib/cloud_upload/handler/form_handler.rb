@@ -1,7 +1,7 @@
 class FormHandler
   def handle(request)
     return [405, {}, ""] unless request.get?
-    [200, {"Content-Type" => "text/html"}, form_html]
+    [200, {"Content-Type" => "text/html"}, StringIO.new(form_html)]
   end
 
   private

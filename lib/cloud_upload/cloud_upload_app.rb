@@ -1,12 +1,15 @@
+require "cloud_upload/handler/form_handler"
+require "cloud_upload/handler/not_found_handler"
+
 class CloudUploadApp
   def call(env)
     request = Rack::Request.new(env)
 
     case request.path
     when /\/$/
-      FormHandler.new.handle(request)
+      return FormHandler.new.handle(request)
     else
-      NotFoundHandler.new.handle(request)
+      return NotFoundHandler.new.handle(request)
     end
   end
 end

@@ -1,7 +1,7 @@
+$:.push File.expand_path("../lib", __FILE__)
+
 require "rack"
-# requires all files under lib/ directory
-Dir[File.dirname(__FILE__) + "/lib/**/*.rb"].each do |file|
-  require file
-end
+require "cloud_upload"
+
 run CloudUploadApp.new
 

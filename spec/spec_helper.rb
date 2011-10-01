@@ -1,16 +1,14 @@
+$:.push File.expand_path("../lib", __FILE__)
+
 require "rspec"
 require "rack/test"
+require "cloud_upload"
 
 # Rack::Test setup
 include Rack::Test::Methods
 
 def app
   CloudUploadApp.new
-end
-
-# requires all files under lib/ directory
-Dir[File.dirname(__FILE__) + "/../lib/**/*.rb"].each do |file|
-  require file
 end
 
 RSpec.configure do |config|
