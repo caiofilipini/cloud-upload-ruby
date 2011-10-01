@@ -23,10 +23,15 @@ describe CloudUploadApp do
     end
 
     context "GET /" do
-      it "should render upload form" do
+      let(:form_handler) { mock('form_handler') }
+
+      before :each do
+        FormHandler.stubs(:new).returns(form_handler)
+      end
+
+      it "should call FormHandler" do
+        form_handler.expects(:handle).returns([200, {}, ""])
         get "/"
-        last_response.status.should == 200
-        last_response.body.should match /uploadForm/
       end
     end
   end
