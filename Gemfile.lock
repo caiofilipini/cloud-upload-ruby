@@ -2,6 +2,9 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.3)
+    metaclass (0.0.1)
+    mocha (0.10.0)
+      metaclass (~> 0.0.1)
     rack (1.3.3)
     rack-test (0.6.1)
       rack (>= 1.0)
@@ -18,6 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mocha
   rack
   rack-test
   rspec

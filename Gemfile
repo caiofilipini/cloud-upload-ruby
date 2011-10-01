@@ -5,4 +5,5 @@ gem "rack"
 group :development, :test do
   gem "rack-test"
   gem "rspec"
+  gem "mocha"
 end

@@ -13,3 +13,6 @@ Dir[File.dirname(__FILE__) + "/../lib/**/*.rb"].each do |file|
   require file
 end
 
+RSpec.configure do |config|
+  config.mock_framework = :mocha
+end
