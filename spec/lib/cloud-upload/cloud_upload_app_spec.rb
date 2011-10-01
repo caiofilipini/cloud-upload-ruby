@@ -1,11 +1,6 @@
 require File.expand_path("spec/spec_helper")
 
 describe CloudUploadApp do
-  include Rack::Test::Methods
-
-  def app
-    CloudUploadApp.new
-  end
 
   context "Rack application" do
     it "should respond to call()" do
@@ -34,7 +29,6 @@ describe CloudUploadApp do
         last_response.body.should match /uploadForm/
       end
     end
-
   end
 
 end
