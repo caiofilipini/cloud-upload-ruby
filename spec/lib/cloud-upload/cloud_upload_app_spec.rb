@@ -15,28 +15,14 @@ describe CloudUploadApp do
   context "Route handling" do
 
     context "GET /unknown" do
-      let(:not_found_handler) { mock('not_found_handler') }
-
-      before :each do
-        NotFoundHandler.stubs(:new).returns(not_found_handler)
-      end
-
-      it "should call NotFoundHandler" do
-        not_found_handler.expects(:handle).returns([404, {}, ""])
+      it "should respond 404" do
         get "/unknown"
         last_response.status.should == 404
       end
     end
 
     context "GET /" do
-      let(:form_handler) { mock('form_handler') }
-
-      before :each do
-        FormHandler.stubs(:new).returns(form_handler)
-      end
-
-      it "should call FormHandler" do
-        form_handler.expects(:handle).returns([200, {}, ""])
+      it "should respond 200" do
         get "/"
         last_response.status.should == 200
       end
