@@ -10,7 +10,7 @@ describe FormHandler do
       response = subject.handle request
       response[0].should == 200
       response[1]["Content-Type"].should == "text/html"
-      response[2].should match /uploadForm/
+      response[2].string.should match /uploadForm/
     end
 
     it "should respond 405 if method is not GET" do
