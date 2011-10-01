@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cloud Upload</title>
+  </head>
+  <body>
+    <h1>Upload your music!</h1>
+    <div id="main">
+      <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+        <input id="uid" type="hidden" name="userId" value="" />
+        <input type="file" name="fileToUpload" id="fileToUpload" />
+      </form>
+    </div>
+    <iframe id="uploadContainer" style="display: none; visibility: hidden; border: 0;"></iframe>
+
+    <div id="form">
+      <form id="detailsForm" action="#" method="post">
+        <textarea name="details"></textarea>
+        <input id="submit" type="submit" value="Save" />
+      </form>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/cloud-upload.js" type="text/javascript"></script>
+  </body>
+</html>
