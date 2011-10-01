@@ -1,8 +1,12 @@
 class CloudUploadApp
   def call(env)
     request = Rack::Request.new(env)
-    return FormHandler.new.handle(request) if request.path =~ /\/$/
-    respond_404
+    case request.path
+    when /\/$/
+      return FormHandler.new.handle(request)
+    else
+      respond_404
+    end
   end
 
   private
