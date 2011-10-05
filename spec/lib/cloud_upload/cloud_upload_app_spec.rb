@@ -13,6 +13,7 @@ describe CloudUploadApp do
   end
 
   context "Route handling" do
+    let(:uid) { "4242424242" }
 
     context "GET /unknown" do
       it "should respond 404" do
@@ -22,8 +23,26 @@ describe CloudUploadApp do
     end
 
     context "GET /" do
-      it "should respond 200" do
+      it "should respond ok" do
         get "/"
+        last_response.status.should == 200
+      end
+    end
+
+    context "GET /status" do
+      before :each do
+        CloudUploadApp::IN_PROGRESS[uid] = {:total => 42, :completed => 42}
+      end
+
+      it "should respond ok" do
+        get "/status", "uid" => uid
+        last_response.status.should == 200
+      end
+    end
+
+    context "POST /upload" do
+      it "should respond ok" do
+        post "/upload", "uid" => uid
         last_response.status.should == 200
       end
     end
